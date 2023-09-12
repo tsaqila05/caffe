@@ -1,0 +1,97 @@
+<%- include('layout/header')%>
+<header>
+    <h1>Add New Contact</h1>
+</header>
+<%- include('layout/nav') %>
+    <form id="contact-form" action="/add-contact" method="POST">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="hp">Nomor HP:</label>
+        <input type="text" id="hp" name="hp" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Tambah Kontak</button>
+    </form>
+    <% if (req.query.success === '1') { %>
+        <p>Kontak berhasil disimpan.</p>
+    <% } %>
+
+        <!-- // document.addEventListener("DOMContentLoaded", function () { -->
+        <!-- //     const contactForm = document.getElementById("contact-form");
+
+        //     contactForm.addEventListener("submit", async function (e) {
+        //         e.preventDefault();
+
+        //         const name = document.getElementById("name").value;
+        //         const hp = document.getElementById("hp").value;
+        //         const email = document.getElementById("email").value;
+
+        //         const formData = new FormData();
+        //         formData.append('name', name);
+        //         formData.append('hp', hp);
+        //         formData.append('email', email);
+
+        //         try {
+        //             const response = await fetch('/contact', {
+        //                 method: 'POST',
+        //                 body: formData
+        //             });
+
+        //             if (response.ok) {
+        //                 console.log('Kontak berhasil ditambahkan.');
+        //                 // Lakukan hal lain setelah berhasil menambahkan kontak
+        //             } else {
+        //                 console.log('Terjadi kesalahan saat menambahkan kontak.');
+        //             }
+        //         } catch (error) {
+        //             console.error('Terjadi kesalahan:', error);
+        //         }
+        //     });
+        // }); -->
+<%- include('layout/footer') %>
+<style>
+#contact-form {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    margin: 0 auto;
+    margin-top: 80px;
+    max-width: 40%;
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+    
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    background-color: #35424a;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #333;
+}
+
+</style>
